@@ -1,0 +1,7 @@
+inventory_in_out,user_id,package_location_id,prod_name,category_id,total_weight,purchased_price,selling_price,cgst,sgst,igst,product_image,description,specification,created_at,updated_at,"weight_per_packed
+","weight_unit
+
+","no_of_packet
+",sku
+Test Rice,1,1,Rice,1,,100,150,7,7,7,,desc1,spec1,,,10,Kilogram,10,1607605360RIYEQC
+Test Oil,1,1,Oil,2,,500,600,9,9,9,,desc2,spec2,,,1,litter,20,1606547360RITRCG

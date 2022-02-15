@@ -1,0 +1,111 @@
+<div id="head">
+<header class="siteHeader">
+<div class="container">
+	<div class="header_wrapper">
+	<!-- Logo -->
+	<a href="{{ route('sitelink') }}" class="siteLogo">
+		<img src="{{ asset('front-assets/images/swadesh-haat-logo.png') }}" alt="JSD Agro">
+	</a>
+
+	<!--<a href="javascript:void(0);" class="menu_toggle"><b></b><b></b><b></b></a>-->
+
+	<!-- Logo -->	
+
+	<!-- Main Search -->
+	<!--<div class="search-box">
+		<form action="{{ route('search-result') }}" method="get">
+			<input type="text" name="q" id="searchtext" autocomplete="off" class="searchtext" value="{{ Request::get('q') }}" placeholder="Search for products" required>
+			<button class="search__btn"></button>
+		</form>  
+	</div>-->
+	<!-- Main Search -->
+
+	<!-- Account -->
+	<!---->
+	<!-- Account -->
+	
+	<div class="accountNvlnk">
+	    @if (Session::has('pos_swadesh_hut'))
+	    <div style="color: white">Welcome {{  Session::get('pos_name') }} </div> &nbsp;&nbsp;&nbsp;&nbsp;
+	    <a href="{{ route('poslogout') }}" class="btn btn-warning">Logout</a>
+			@else
+	
+			<a href="{{ route('poslogin') }}" class="btn btn-warning"> SignIn </a>
+			
+			@endif
+	        
+
+		
+	</div>
+
+	<!-- Cart -->
+	<!--<a href="{{ route('cart') }}" class="hdrCart">-->
+	<!--	<span id="shprocnt">-->
+ <!--         My Cart-->
+ <!--         <strong>-->
+				<?php
+				// 	$productCount=0;
+				// 	foreach( Cart::getContent() as $pdKey=>$pdValue ):
+				// 		$productCount=$productCount+$pdValue->quantity;
+				// 	endforeach;
+				// 	echo $productCount;
+				?> <!-- items-->
+ <!--         </strong>-->
+	<!--	</span>-->
+	<!--</a>-->
+	<!-- Cart -->
+		</div><!-- .header_wrapper -->
+  </div><!-- .container -->
+</header>
+<nav class="topnav">
+  <div class="container">
+      
+      <!-- Store -->
+	<a data-toggle="modal" href="#myModal" class="storeLocation">
+		<span class="globe" id="storeid">
+					<?php /*
+					@if(Session::has('swadesh_hut_name'))
+						Store Name : {{ Session::get('swadesh_hut_name') }}
+					@else
+						{{ "Select Store" }}
+					@endif
+					*/
+					?>
+          Deliver To
+          <strong>
+		  			<?php echo Session::get('swadesh_hut_name');  ?>
+					
+          </strong>
+		</span>
+		<i class="icon-angle-down"></i>
+	</a>
+	<!-- Store -->
+	
+	<ul class="menus">
+	     @isset($parentCategory)
+	    @php
+	    
+	   
+				if( !$parentCategory->isEmpty() ):
+					foreach( $parentCategory as $newData ):
+			@endphp
+				<li><a href="{{ route('product-category', $newData->id) }}">{{ $newData->name }}</a></li>
+			@php
+					endforeach;
+				endif;
+				
+				
+			@endphp
+	    
+	    @endisset
+	</ul>
+    
+  </div>
+</nav>
+</div>  
+ 
+
+<div class="wrapper-fluid">
+ 
+	 
+<?php //echo Helper::printMenu('0');?>
